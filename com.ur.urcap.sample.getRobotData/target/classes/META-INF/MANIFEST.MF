@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1531480801906
+Bnd-LastModified: 1531748403466
 Build-Jdk: 1.8.0_171
 Built-By: jbm
 Bundle-Activator: com.ur.urcap.sample.getRobotData.impl.Activator

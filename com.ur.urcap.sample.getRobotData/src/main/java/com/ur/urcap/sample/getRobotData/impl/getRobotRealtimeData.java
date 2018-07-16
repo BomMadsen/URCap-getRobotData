@@ -19,7 +19,7 @@ public class getRobotRealtimeData {
 	private int TCP_port = 30003;
 	
 	// Initialize a new array for storing received data from realtime interface
-	private double[] RealtimeMessage = new double[133]; 
+	private double[] RealtimeMessage;
 	
 	// Public method that reads a snapshot from real time client interface
 	public void readNow(){
@@ -42,6 +42,9 @@ public class getRobotRealtimeData {
 			// Read the integer available in stream
 			int length = in.readInt();
 			System.out.println("Length is "+length);
+			
+			// Initialize size of RealtimeMessage be using received length
+			RealtimeMessage = new double[length];
 			// Add length integer to output array
 			RealtimeMessage[0] = length;
 			
@@ -72,24 +75,24 @@ public class getRobotRealtimeData {
 	 * According to specification of RealTimeClient in Excel sheet
 	 */
 	private enum RTinfo {
-		// name		(index in plot, number of doubles)
-		q_target	(2, 6),
-		qd_target	(8, 6),
-		qdd_target	(14, 6),
-		q_actual	(32, 6),
-		qd_actual	(38, 6),
-		TCP_actual	(56, 6),
-		TCPd_actual	(62, 6),
-		TCP_force	(68, 6),
-		TCP_target	(74, 6),
-		TCPd_target	(80, 6),
-		temp_joint	(87, 6),
-		robotmode	(95, 1),
-		jointmode	(96, 6),
-		safetymode	(97, 1),
-		tcp_accel	(109, 3),
-		speedscaling(118, 1),
-		prgstate	(132, 1);
+		// name			(index in plot, number of doubles)
+		q_target		(2, 6),
+		qd_target		(8, 6),
+		qdd_target		(14, 6),
+		q_actual		(32, 6),
+		qd_actual		(38, 6),
+		TCP_actual		(56, 6),
+		TCPd_actual		(62, 6),
+		TCP_force		(68, 6),
+		TCP_target		(74, 6),
+		TCPd_target		(80, 6),
+		temp_joint		(87, 6),
+		robotmode		(95, 1),
+		jointmode		(96, 6),
+		safetymode		(97, 1),
+		tcp_accel		(109, 3),
+		speedscaling	(118, 1),
+		prgstate		(132, 1);
 		// More data points could be added if desired, by following above example and according to specification.
 		
 		private final int index;
