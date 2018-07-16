@@ -11,12 +11,30 @@ import java.util.Map;
 
 public class getRobotRealtimeData {
 	
-	public getRobotRealtimeData() { }
-	
-	// localhost IP
-	private String TCP_IP = "127.0.0.1";
+	// IP address to read from
+	private final String TCP_IP;
 	// Port for real time client
-	private int TCP_port = 30003;
+	private final int TCP_port;
+	
+	/*****
+	 * Creates a new RealTime reader
+	 * Default Constructor
+	 * Uses localhost (127.0.0.1) and port 30003
+	 */
+	public getRobotRealtimeData() { 
+		this.TCP_IP = "127.0.0.1";
+		this.TCP_port = 30003;
+	}
+	
+	/*****
+	 * Creates a new RealTime reader
+	 * Will connect to specified IP
+	 * @param IP The IP address of the robot to conect to
+	 */
+	public getRobotRealtimeData(String IP) {
+		this.TCP_IP = IP;
+		this.TCP_port = 30003;
+	}
 	
 	// Initialize a new array for storing received data from realtime interface
 	private double[] RealtimeMessage;
