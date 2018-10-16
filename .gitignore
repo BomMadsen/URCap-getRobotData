@@ -16,3 +16,5 @@ com.ur.urcap.sample.getRobotData/target/classes/
 com.ur.urcap.sample.getRobotData/target/test-classes/
 com.ur.urcap.sample.getRobotData/target/generated-sources/
 com.ur.urcap.sample.getRobotData/target/generated-test-sources/
+com.ur.urcap.sample.getRobotData/target/maven-status/
+com.ur.urcap.sample.getRobotData/target/surefire-reports/
