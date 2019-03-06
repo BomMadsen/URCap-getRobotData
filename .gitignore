@@ -12,6 +12,7 @@ syntax: glob
 .settings
 
 com.ur.urcap.sample.getRobotData/.settings/
+com.ur.urcap.sample.getRobotData/.gitignore
 com.ur.urcap.sample.getRobotData/target/classes/
 com.ur.urcap.sample.getRobotData/target/test-classes/
 com.ur.urcap.sample.getRobotData/target/generated-sources/
