@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
-public class getRobotRealtimeData {
+public class RobotRealtimeReader {
 	
 	// IP address to read from
 	private final String TCP_IP;
@@ -21,7 +21,7 @@ public class getRobotRealtimeData {
 	 * Default Constructor
 	 * Uses localhost (127.0.0.1) and port 30003
 	 */
-	public getRobotRealtimeData() { 
+	public RobotRealtimeReader() { 
 		this.TCP_IP = "127.0.0.1";
 		this.TCP_port = 30003;
 	}
@@ -31,7 +31,7 @@ public class getRobotRealtimeData {
 	 * Will connect to specified IP
 	 * @param IP The IP address of the robot to conect to
 	 */
-	public getRobotRealtimeData(String IP) {
+	public RobotRealtimeReader(String IP) {
 		this.TCP_IP = IP;
 		this.TCP_port = 30003;
 	}

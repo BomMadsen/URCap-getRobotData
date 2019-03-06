@@ -13,7 +13,7 @@ import com.ur.urcap.api.ui.annotation.Label;
 import com.ur.urcap.api.ui.component.LabelComponent;
 
 // Import the Real Time client reader class to this class
-import com.ur.urcap.sample.getRobotData.impl.getRobotRealtimeData;
+import com.ur.urcap.sample.getRobotData.impl.RobotRealtimeReader;
 
 public class SomeInstallationContribution implements InstallationNodeContribution {
 
@@ -26,7 +26,7 @@ public class SomeInstallationContribution implements InstallationNodeContributio
 	}
 	
 	// Creating handle to getRobotRealtimeData class
-	getRobotRealtimeData getData = new getRobotRealtimeData();
+	RobotRealtimeReader realtimeReader = new RobotRealtimeReader();
 	
 	/*
 	 * Methods to show data in UI
@@ -77,13 +77,13 @@ public class SomeInstallationContribution implements InstallationNodeContributio
 	private void updateUI() {
 		// Used to read a snapshot from the Real Time Client
 		// Should be called at least once before accessing data.
-		getData.readNow();
+		realtimeReader.readNow();
 		
 		// Create a decimal formatter, to decide how many digits after decimal separator 
 		DecimalFormat df = new DecimalFormat("#.####");
 		
 		// Read the actual TCP pose
-		double[] tcp = getData.getActualTcpPose();
+		double[] tcp = realtimeReader.getActualTcpPose();
 		String showTcp = "p["+
 				df.format(tcp[0])+","+
 				df.format(tcp[1])+","+
@@ -94,7 +94,7 @@ public class SomeInstallationContribution implements InstallationNodeContributio
 		showActualTCP.setText(showTcp);
 		
 		// Read the actual joint positions
-		double[] joints = getData.getActualJointPose();
+		double[] joints = realtimeReader.getActualJointPose();
 		String showJoints = "["+
 				df.format(joints[0])+","+
 				df.format(joints[1])+","+
@@ -105,7 +105,7 @@ public class SomeInstallationContribution implements InstallationNodeContributio
 		showActualJoints.setText(showJoints);
 		
 		// Read the joint temperatures
-		double[] temps = getData.getJointTemperatures();
+		double[] temps = realtimeReader.getJointTemperatures();
 		String showTemps = "["+
 				df.format(temps[0])+","+
 				df.format(temps[1])+","+
@@ -116,7 +116,7 @@ public class SomeInstallationContribution implements InstallationNodeContributio
 		showJointTemps.setText(showTemps);
 		
 		// Read the joint modes
-		String[] jointmode = getData.getJointStatus();
+		String[] jointmode = realtimeReader.getJointStatus();
 		showJoint0.setText("Base: "+jointmode[0]);
 		showJoint1.setText("Shoulder: "+jointmode[1]);
 		showJoint2.setText("Elbow: "+jointmode[2]);
@@ -124,7 +124,7 @@ public class SomeInstallationContribution implements InstallationNodeContributio
 		showJoint4.setText("Wrist 2: "+jointmode[4]);
 		showJoint5.setText("Wrist 3: "+jointmode[5]);
 
-		double scale = getData.getSpeedScaling();
+		double scale = realtimeReader.getSpeedScaling();
 		showSpeedScaling.setText(df.format(scale)+" %");
 	}
 	
